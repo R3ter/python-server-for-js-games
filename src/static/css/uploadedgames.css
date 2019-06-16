@@ -1,0 +1,9 @@
+div{
+    color: gray;
+}
+.accepted{
+    color:rgb(0, 255, 0);
+}
+.denied{
+    color:red;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload game</title>
+</head>
+<body>
+
+{% include 'top.html' %}
+
+{% if exists %}
+<h2>name is already taken</h2>
+{% else %}
+<h1>you have upload {{ name }}</h1>
+<h1>you can check your game from <a href="/uploadedgames">here</a> </h1>
+{% endif %}
+</body>
+</html>

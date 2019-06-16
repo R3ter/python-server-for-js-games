@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% include 'top.html' %}
+
+<a href="/uploadedgames">
+<button>uploaded games</button>
+</a>
+{% if name %}
+<h3 style="color:red">enter ur game's name</h3>
+{% endif %}
+{% if error %}
+<h3 style="color:red">error with file please make sure you uploaded a zip file</h3>
+{% endif %}
+<form method="post" action="/uploadgame" enctype="multipart/form-data">
+    <h4>submit ur shit</h4>
+    <input type="file"  name="file">
+    <input type="text" placeholder="game's name" name="name">
+    <input type="submit">
+</form>
+{% for game in games %}
+<div class="d-inline-flex p-2">
+    <a href="/game:{{ game }}" >
+        <img class="rounded mx-auto d-block" src="{{url_for('static',filename='js/'+ game +'/'+ game +'.png')}}">
+    <h1 >{{ game }}</h1>
+    </a>
+</div>
+{% endfor %}
+</body>
+</html>

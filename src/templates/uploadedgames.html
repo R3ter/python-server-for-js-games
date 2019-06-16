@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/uploadedgames.css')}}" />
+    <meta charset="UTF-8">
+    <title>uploaded games</title>
+</head>
+<body>
+{% include 'top.html' %}
+
+{% for x in games %}
+<div class="{{ x['state'] }}">
+    <h1>{{ x['name'] }}</h1>
+    <h5>{{ x['time'] }}</h5>
+    <h6>{{ x['state'] }}</h6>
+</div>
+{% endfor %}
+</body>
+</html>
